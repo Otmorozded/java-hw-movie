@@ -10,7 +10,7 @@ public class PosterManager {
 
   public PosterManager(int number) {
 
-    if(number >= 0){
+    if (number >= 0) {
       defaultNumberToShow = number;
 
     }
@@ -42,14 +42,18 @@ public class PosterManager {
 
   public PosterData[] getAllMovies() {
 
-    if(defaultNumberToShow > posters.length) {
+    int lenght;
 
-      defaultNumberToShow = posters.length;
+
+    if (defaultNumberToShow <= posters.length) {
+
+      lenght = defaultNumberToShow;
+    } else  {
+
+      lenght = posters.length;
     }
 
-
-
-    PosterData[] result = new PosterData[defaultNumberToShow];
+    PosterData[] result = new PosterData[lenght];
 
     for (int i = 0; i < result.length; i++) {
       int index = posters.length - i - 1;
@@ -60,3 +64,4 @@ public class PosterManager {
     return result;
   }
 }
+
